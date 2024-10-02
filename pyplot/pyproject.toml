@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "reflex-pyplot"
+version = "0.0.1"
+description = "Reflex custom component pyplot"
+readme = "README.md"
+license = { text = "Apache-2.0" }
+requires-python = ">=3.9"
+authors = [{ name = "Alek Petuskey", email = "alek@reflex.dev" }]
+keywords = ["reflex","reflex-custom-components"]
+
+dependencies = ["reflex>=0.6.0"]
+
+classifiers = ["Development Status :: 4 - Beta"]
+
+[project.urls]
+
+[project.optional-dependencies]
+dev = ["build", "twine"]
+
+[tool.setuptools.packages.find]
+where = ["custom_components"]
