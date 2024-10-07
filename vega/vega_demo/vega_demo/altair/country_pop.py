@@ -7,8 +7,6 @@ SPEC = {
   "data": [
     {
       "name": "table",
-      "url": "data.json",
-      "format": {"type": "json"}
     }
   ],
 
@@ -18,7 +16,7 @@ SPEC = {
       "type": "band",
       "domain": {"data": "table", "field": "country"},
       "range": "width",
-      "padding": 0.05
+      #"padding": 0.05
     },
     {
       "name": "yscale",

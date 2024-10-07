@@ -1,6 +1,4 @@
-from enum import Enum
-from typing import Union, Literal
-import pandas as pd
+from typing import Union, Literal, Optional, Dict
 import altair as alt
 
 AltairChart = Union[
@@ -34,20 +32,6 @@ AltairSignal = Literal[
     "wheel",
 ]
 
-AltairAutosize = Literal[
-    "pad",
-    "fit",
-    "fit-x",
-    "fit-y",
-    "none"
-]
-
-AltairBounds = Literal[
-    "flush",
-    "full"
-]
-
-
 AltairLogLevel = Literal[
     0,
     1,
@@ -55,4 +39,30 @@ AltairLogLevel = Literal[
     3,
     4,
     5
+]
+
+AltairPadding = Literal[
+    "left",
+    "right",
+    "top",
+    "bottom",
+]
+# AltairDataFrame = NewType('AltairDataFrame', pd.DataFrame)
+
+AltairMode = Literal[
+    "vega",
+    "vega-lite"
+]
+
+AltairRenderer = Literal[
+    'canvas',
+    'svg',
+    'hybrid',
+    'none'
+]
+
+AltairAction = Union[
+    bool,
+    Dict[Literal['export', 'source', 'compiled', 'editor'], bool],
+    Dict[Literal['export'], Dict[Literal['svg', 'png'], Optional[bool]]]
 ]

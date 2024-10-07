@@ -25,7 +25,7 @@ def seattle_weather_dashboard() -> AltairChart:
         color=alt.condition(brush, color, alt.value('lightgray')),
         size=alt.Size('precipitation:Q', scale=alt.Scale(range=[5, 200]))
     ).properties(
-        width=550,
+        width="container",
         height=300
     ).add_params(
         brush
@@ -41,7 +41,7 @@ def seattle_weather_dashboard() -> AltairChart:
     ).transform_filter(
         brush
     ).properties(
-        width=300,
+        width="container",
     ).add_params(
         click
     )
@@ -50,5 +50,5 @@ def seattle_weather_dashboard() -> AltairChart:
         points,
         bars,
         data=alt.Data(name="seattle_weather"),
-        title="Seattle Weather: 2012-2015"
+        title="Seattle Weather: 2012-2015",
     )
