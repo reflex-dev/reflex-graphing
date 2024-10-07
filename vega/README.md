@@ -21,7 +21,7 @@ and Vega-Lite visualizations in your application. This component allows you to s
 ### `spec`
 
 - **Type:** `AltairChart | Dict[str, Any]`
-- **Description:** The Vega or Vega-Lite chart specification. This can be an instance of [AltairChart](/vega/custom_components/reflex_vega/type.py:4) or a dictionary representing the chart specification.
+- **Description:** The Vega or Vega-Lite chart specification. This can be an instance of [AltairChart](/vega/custom_components/reflex_vega/type.py#L4) or a dictionary representing the chart specification.
 
 ### `data`
 
@@ -46,7 +46,7 @@ df.to_dict("records")
 ### `actions`
 
 - **Type:** `bool | AltairAction`
-- **Description:** Configuration for the action menu that appears in the top-right corner of the chart. This can be a boolean to enable/disable the menu or an [AltairAction](/vega/custom_components/reflex_vega/type.py:64) object to customize the actions.
+- **Description:** Configuration for the action menu that appears in the top-right corner of the chart. This can be a boolean to enable/disable the menu or an [AltairAction](/vega/custom_components/reflex_vega/type.py#L64) object to customize the actions.
 
 ### `download_file_name`
 
