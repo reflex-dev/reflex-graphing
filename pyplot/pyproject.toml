@@ -4,22 +4,20 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "reflex-pyplot"
-version = "0.0.1"
-description = "Reflex custom component pyplot"
-readme = "README.md"
-license = { text = "Apache-2.0" }
-requires-python = ">=3.9"
+version = "0.1.2"
+description = "Reflex custom component for matplotlib."
 authors = [{ name = "Alek Petuskey", email = "alek@reflex.dev" }]
-keywords = ["reflex","reflex-custom-components"]
-
-dependencies = ["reflex>=0.6.0"]
-
-classifiers = ["Development Status :: 4 - Beta"]
-
-[project.urls]
-
-[project.optional-dependencies]
-dev = ["build", "twine"]
+license = { text = "Apache-2.0" }
+requires-python = ">=3.8"
+readme = "README.md"
+keywords = ["reflex", "matplotlib"]
+dependencies = [
+    "matplotlib",
+]
 
 [tool.setuptools.packages.find]
 where = ["custom_components"]
+
+[project.urls]
+homepage = "https://reflex.dev"
+source = "https://github.com/reflex-dev/reflex-graphing/tree/main/pyplot"
