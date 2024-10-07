@@ -1,3 +1,2 @@
 reflex>=0.6.0
-reflex-pyplot
 matplotlib

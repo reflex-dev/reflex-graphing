@@ -5,9 +5,12 @@ from reflex.components.component import Component
 from reflex.components.next.image import Image
 from reflex.utils.serializers import serializer
 
-# Set matplotlib backend
-import matplotlib
-matplotlib.use("Agg")
+try:
+    import matplotlib
+    matplotlib.use("Agg")
+    from matplotlib.figure import Figure
+except ImportError as e:
+    raise ImportError("Matplotlib is required for this module. Please install it using 'pip install matplotlib'.") from e
 
 class Pyplot(Component):
     """Display a Matplotlib chart."""
