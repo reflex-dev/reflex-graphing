@@ -1,9 +1,9 @@
 import altair as alt
 
-from reflex_vega.type import AltairChart
+from reflex_altair.type import AltairChartType
 
 
-def seattle_weather_dashboard() -> AltairChart:
+def seattle_weather_dashboard() -> AltairChartType:
     """
     Source: https://altair-viz.github.io/gallery/seattle_weather_interactive.html
     """
@@ -51,4 +51,5 @@ def seattle_weather_dashboard() -> AltairChart:
         bars,
         data=alt.Data(name="seattle_weather"),
         title="Seattle Weather: 2012-2015",
+
     )

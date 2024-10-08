@@ -1,16 +1,16 @@
-# Altair - Vega
+# Altair
 
-A Reflex custom component for Vega grammar that support altair charts.
+A Reflex custom component for altair charts.
 
 ## Installation
 
 ```bash
-pip install TODO
+pip install reflex-altair
 ```
 
-# Vega Component
+# Altair Component
 
-The `Vega` component is a React component that integrates with the `react-vega` library to render Vega 
+The `Altair` component is a React component that integrates with the `react-vega` library to render Vega 
 and Vega-Lite visualizations in your application. This component allows you to specify the chart specifications,
  data, and various configuration options to customize the rendering and behavior of the visualizations.
 
@@ -21,7 +21,7 @@ and Vega-Lite visualizations in your application. This component allows you to s
 ### `spec`
 
 - **Type:** `AltairChart | Dict[str, Any]`
-- **Description:** The Vega or Vega-Lite chart specification. This can be an instance of [AltairChart](/vega/custom_components/reflex_vega/type.py#L4) or a dictionary representing the chart specification.
+- **Description:** The Vega or Vega-Lite chart specification. This can be an instance of [AltairChart](/altair/custom_components/reflex_altair/type.py#L4) or a dictionary representing the chart specification.
 
 ### `data`
 
@@ -46,7 +46,7 @@ df.to_dict("records")
 ### `actions`
 
 - **Type:** `bool | AltairAction`
-- **Description:** Configuration for the action menu that appears in the top-right corner of the chart. This can be a boolean to enable/disable the menu or an [AltairAction](/vega/custom_components/reflex_vega/type.py#L64) object to customize the actions.
+- **Description:** Configuration for the action menu that appears in the top-right corner of the chart. This can be a boolean to enable/disable the menu or an [AltairAction](/altair/custom_components/reflex_altair/type.py#L64) object to customize the actions.
 
 ### `download_file_name`
 
@@ -81,28 +81,6 @@ Values are `left`, `right`, `bottom`, `left`
 `signal_listeners` and `on_new_view` are not yet supported
 
 ## Example Usage
-With [vega](https://vega.github.io/vega/)
-
-
-```python
-chart_spec = {
-    "data": {"name": "table"},
-    "mark": "bar",
-    "encoding": {
-        "x": {"field": "category", "type": "nominal"},
-        "y": {"field": "value", "type": "quantitative"}
-    }
-}
-
-chart_data = {
-    "table": [
-        {"category": "A", "value": 28},
-        {"category": "B", "value": 55},
-        {"category": "C", "value": 43}
-    ]
-}
-```
-
 With [altair](https://altair-viz.github.io/index.html)
 
 ```python
@@ -128,10 +106,28 @@ chart_spec = alt.Chart(alt.Data(name="dataset_id")).mark_bar().encode(
     title='Bar Chart Example'
 )
 ```
-
+With [vega-lite](https://vega.github.io/vega-lite/)
 ```python
-# Create the Vega component
-vega_chart = vega(
+chart_spec = {
+    "data": {"name": "table"},
+    "mark": "bar",
+    "encoding": {
+        "x": {"field": "category", "type": "nominal"},
+        "y": {"field": "value", "type": "quantitative"}
+    }
+}
+
+chart_data = {
+    "table": [
+        {"category": "A", "value": 28},
+        {"category": "B", "value": 55},
+        {"category": "C", "value": 43}
+    ]
+}
+```
+```python
+# Create the altair component
+altair_component = altair_chart(
     spec=chart_spec,
     data=chart_data,
     actions={"export": {"svg": False}, "compiled": False},
@@ -139,4 +135,4 @@ vega_chart = vega(
 )
 ```
 
-You can run [reflex demo](vega/vega_demo) also
+You can run [reflex demo](./altair_demo) also

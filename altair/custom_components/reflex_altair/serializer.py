@@ -1,12 +1,12 @@
 import reflex as rx
 from typing import Dict, Any
-from reflex_vega.type import AltairChart
+from .type import AltairChartType
 
 
 @rx.serializer
-def serialize_altair_chart(chart: AltairChart) -> Dict[str, Dict[str, Any]]:
+def serialize_altair_chart(chart: AltairChartType) -> Dict[str, Dict[str, Any]]:
     """
-    Serialize an altair Chart to get his Vega spec
+    Serialize an altair Chart to get his vega-lite spec
     """
     return chart.to_dict()
 

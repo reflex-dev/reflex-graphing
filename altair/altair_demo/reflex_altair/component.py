@@ -1,15 +1,16 @@
 from typing import Dict, Any, List, Union
-from .type import AltairChart, AltairLogLevel, AltairPadding, \
+from .type import AltairChartType, AltairLogLevel, AltairPadding, \
     AltairMode, \
     AltairRenderer, AltairAction
 import reflex as rx
 
 
-class Vega(rx.Component):
+class AltairChart(rx.Component):
     library = "react-vega"
     tag = "Vega"
+    alias = "Altair"
 
-    spec: rx.Var[AltairChart | Dict[str, Any]]
+    spec: rx.Var[AltairChartType | Dict[str, Any]]
     data: rx.Var[Dict[str, List[Dict[str, Any]]]]
 
     # Can't support event for signal_listeners & on_new_view
@@ -32,4 +33,4 @@ class Vega(rx.Component):
     padding: rx.Var[Union[int, float] | Dict[AltairPadding, Union[int, float]]]
 
 
-vega = Vega.create
+altair_chart = AltairChart.create

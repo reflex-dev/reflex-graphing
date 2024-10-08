@@ -1,7 +1,7 @@
 from typing import Union, Literal, Optional, Dict
 import altair as alt
 
-AltairChart = Union[
+AltairChartType = Union[
     alt.Chart,
     alt.VConcatChart,
     alt.HConcatChart,
