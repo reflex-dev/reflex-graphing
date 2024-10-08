@@ -6,7 +6,7 @@ import reflex as rx
 from reflex_altair.type import AltairChartType
 from reflex_altair.component import altair_chart
 from reflex_monaco import monaco
-from altair_demo.altair.country_pop import DATA, SPEC
+from altair_demo.altair.us_airport import SPEC
 from altair_demo.altair.seattle_weather import seattle_weather_dashboard
 from vega_datasets import data
 import altair as alt
@@ -14,28 +14,27 @@ import altair as alt
 
 class State(rx.State):
     """The app state."""
-    data_1: Dict[str, List[Dict[str, Any]]] = {"seattle_weather": data.seattle_weather().to_dict("records")}
-    spec_1: AltairChartType = seattle_weather_dashboard()
+    data_altair: Dict[str, List[Dict[str, Any]]] = {"seattle_weather": data.seattle_weather().to_dict("records")}
+    spec_altair: AltairChartType = seattle_weather_dashboard()
     theme: str = "default"
 
-    data_2: Dict[str, List[Dict[str, Any]]] = DATA
-    spec_2: Dict[str, Any] = SPEC
+    spec_airport: Dict[str, Any] = SPEC
 
     def set_theme(self, value):
         self.theme = value
         alt.themes.enable(self.theme)
-        self.spec_1 = seattle_weather_dashboard()
+        self.spec_altair = seattle_weather_dashboard()
 
     def monaco_edit(self, value):
         try:
             tmp = json.loads(value)
-            self.spec_2 = tmp
+            self.spec_airport = tmp
         except Exception as e:
             logging.error(e)
 
     @rx.vars.base.computed_var()
     def json_spec_2(self) -> str:
-        return json.dumps(self.spec_2, indent=2)
+        return json.dumps(self.spec_airport, indent=2)
 
 
 def theme_dropdown() -> rx.Component:
@@ -64,8 +63,8 @@ def index() -> rx.Component:
             rx.heading("From altair python"),
             theme_dropdown(),
             altair_chart(
-                spec=State.spec_1,
-                data=State.data_1,
+                spec=State.spec_altair,
+                data=State.data_altair,
                 width="100%",
                 actions={"export": {"svg": False}, "compiled": False},
             ),
@@ -90,8 +89,7 @@ def index() -> rx.Component:
             """),
             rx.heading("From vega-lite JSON"),
             altair_chart(
-                spec=State.spec_2,
-                data=State.data_2,
+                spec=State.spec_airport,
             ),
             monaco(
                 default_value=State.json_spec_2,

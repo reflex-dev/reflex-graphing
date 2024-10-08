@@ -51,15 +51,3 @@ SPEC = {'$schema': 'https://vega.github.io/schema/vega-lite/v5.json',
                                      "'VI'"}]}],
  'projection': {'type': 'albersUsa'},
  'width': 900}
-
-
-
-DATA = {
-        "table": [
-            {"country": "USA", "population": 331002651},
-            {"country": "India", "population": 1380004385},
-            {"country": "China", "population": 1439323776},
-            {"country": "Brazil", "population": 212559417},
-            {"country": "Pakistan", "population": 220892340}
-        ]
-    }
