@@ -78,7 +78,29 @@ Values are `left`, `right`, `bottom`, `left`
 > used instead of default style padding
 
 ### Events
-`signal_listeners` and `on_new_view` are not yet supported
+`on_new_view` depends on :
+- on_new_view_click
+- on_new_view_dblclick
+- on_new_view_dragenter
+- on_new_view_dragleave
+- on_new_view_dragover
+- on_new_view_keydown
+- on_new_view_keypress
+- on_new_view_keyup
+- on_new_view_mousedown
+- on_new_view_mousemove
+- on_new_view_mouseout
+- on_new_view_mouseover
+- on_new_view_mouseup
+- on_new_view_mousewheel
+- on_new_view_touchend
+- on_new_view_touchmove
+- on_new_view_touchstart
+- on_new_view_wheel
+
+> Chart is rerender after an event, removing current selection
+
+`signal_listeners`is not yet supported
 
 ## Example Usage
 With [altair](https://altair-viz.github.io/index.html)

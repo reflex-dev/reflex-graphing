@@ -36,6 +36,10 @@ class State(rx.State):
     def json_spec_2(self) -> str:
         return json.dumps(self.spec_airport, indent=2)
 
+    @rx.event(background=True)
+    async def test_log(self, value):
+        print(value)
+
 
 def theme_dropdown() -> rx.Component:
     return rx.select.root(
@@ -87,18 +91,19 @@ def index() -> rx.Component:
             )
             ```
             """),
-            rx.heading("From vega-lite JSON"),
-            altair_chart(
-                spec=State.spec_airport,
-            ),
-            monaco(
-                default_value=State.json_spec_2,
-                on_change=State.monaco_edit,
-                width="600px",
-                height="200px"
-            ),
+        ),
+        rx.heading("From vega-lite JSON"),
+        altair_chart(
+            spec=State.spec_airport,
+        ),
+        monaco(
+            default_value=State.json_spec_2,
+            on_change=State.monaco_edit,
+            width="600px",
+            height="200px",
         ),
     )
+
 
 
 app = rx.App()
