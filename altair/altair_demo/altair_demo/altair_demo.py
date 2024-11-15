@@ -32,13 +32,14 @@ class State(rx.State):
         except Exception as e:
             logging.error(e)
 
-    @rx.vars.base.computed_var()
+    @rx.vars.base.computed_var(cache=True)
     def json_spec_2(self) -> str:
         return json.dumps(self.spec_airport, indent=2)
 
     @rx.event(background=True)
     async def test_log(self, value):
         print(value)
+        return rx.toast(value)
 
 
 def theme_dropdown() -> rx.Component:
@@ -71,6 +72,7 @@ def index() -> rx.Component:
                 data=State.data_altair,
                 width="100%",
                 actions={"export": {"svg": False}, "compiled": False},
+                on_new_view_click=State.test_log
             ),
             rx.markdown("""
             ### Backend :
@@ -95,11 +97,12 @@ def index() -> rx.Component:
         rx.heading("From vega-lite JSON"),
         altair_chart(
             spec=State.spec_airport,
+            on_new_view_click=State.test_log
         ),
         monaco(
             default_value=State.json_spec_2,
             on_change=State.monaco_edit,
-            width="600px",
+            width="100%",
             height="200px",
         ),
     )
