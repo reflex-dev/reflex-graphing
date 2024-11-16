@@ -70,7 +70,7 @@ class AltairChart(rx.Component):
             const {{ items, context, datum, ...item2 }} = item
             const {{ mark, ...datum2 }} = datum
             {placeholder}(
-                datum2
+                [_e.vegaType, datum2]
             )
         }}, false);
         """
