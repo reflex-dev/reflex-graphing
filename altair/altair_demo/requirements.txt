@@ -1,2 +1,4 @@
 reflex
 altair
+vega-datasets
+reflex-monaco

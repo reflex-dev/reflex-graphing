@@ -13,7 +13,7 @@ def seattle_weather_dashboard() -> AltairChartType:
     color = alt.Color('weather:N', scale=scale)
 
     brush = alt.selection_interval(encodings=['x'])
-    click = alt.selection_point(encodings=['color'])
+    click = alt.selection_point(encodings=['color'])  # on='touchstart' for mobile
 
     points = alt.Chart().mark_point().encode(
         alt.X('monthdate(date):T', title='Date'),
@@ -43,7 +43,7 @@ def seattle_weather_dashboard() -> AltairChartType:
     ).properties(
         width="container",
     ).add_params(
-        click
+        click,
     )
 
     return alt.vconcat(

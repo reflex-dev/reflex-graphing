@@ -72,7 +72,8 @@ def index() -> rx.Component:
                 data=State.data_altair,
                 width="100%",
                 actions={"export": {"svg": False}, "compiled": False},
-                on_new_view_click=State.test_log
+                on_new_view_click=State.test_log,
+                on_new_view_touchstart=State.test_log
             ),
             rx.markdown("""
             ### Backend :
@@ -97,7 +98,8 @@ def index() -> rx.Component:
         rx.heading("From vega-lite JSON"),
         altair_chart(
             spec=State.spec_airport,
-            on_new_view_click=State.test_log
+            on_new_view_click=State.test_log,
+            on_new_view_touchstart=State.test_log
         ),
         monaco(
             default_value=State.json_spec_2,
