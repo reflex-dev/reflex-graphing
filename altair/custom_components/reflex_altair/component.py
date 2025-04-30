@@ -9,7 +9,7 @@ import reflex as rx
 SIGNAL_PROPS = {"onNewView" + e.title(): e for e in AltairSignal.__args__}
 
 
-class AltairChart(rx.Component):
+class AltairChart(rx.NoSSRComponent):
     library = "react-vega"
     tag = "Vega"
     alias = "Altair"

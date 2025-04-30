@@ -36,10 +36,10 @@ class State(rx.State):
     def json_spec_2(self) -> str:
         return json.dumps(self.spec_airport, indent=2)
 
-    @rx.event(background=True)
-    async def test_log(self, value):
+    @rx.event
+    async def test_log(self, value: List[Any]) -> rx.Component:
         print(value)
-        return rx.toast(value)
+        return rx.toast(str(value))
 
 
 def theme_dropdown() -> rx.Component:
@@ -108,7 +108,6 @@ def index() -> rx.Component:
             height="200px",
         ),
     )
-
 
 
 app = rx.App()

@@ -1,4 +1,4 @@
-SPEC = {'$schema': 'https://vega.github.io/schema/vega-lite/v5.json',
+SPEC = {'$schema': 'https://vega.github.io/schema/vega-lite/v6.1.json',
  'description': 'An interactive visualization of connections among major U.S. '
                 'airports in 2008. Based on a U.S. airports example by Mike '
                 'Bostock.',
