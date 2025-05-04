@@ -1,4 +1,4 @@
-from typing import Union, Literal, Optional, Dict
+from typing import Union, Literal, Mapping
 import altair as alt
 
 AltairChartType = Union[
@@ -61,8 +61,5 @@ AltairRenderer = Literal[
     'none'
 ]
 
-AltairAction = Union[
-    bool,
-    Dict[Literal['export', 'source', 'compiled', 'editor'], bool],
-    Dict[Literal['export'], Dict[Literal['svg', 'png'], Optional[bool]]]
-]
+AltairAction = Mapping[str, Union[Mapping[str, bool], bool]]
+

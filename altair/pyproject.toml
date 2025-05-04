@@ -18,7 +18,7 @@ build-backend = "setuptools.build_meta"
 
 name = "reflex-altair"
 
-version = "0.1.1"
+version = "0.1.2"
 
 description = "Reflex custom component to render altair/vega"
 
@@ -32,11 +32,11 @@ license = { text = "Apache-2.0" }
 
 
 
-requires-python = ">=3.9"
+requires-python = ">=3.12"
 
 
 
-authors = [{ name = "L�opold Grosjean", email = "leo.grosjean@gmail.com" }]
+authors = [{ name = "Léopold Grosjean", email = "leo.grosjean@gmail.com" }]
 
 
 
@@ -56,7 +56,7 @@ keywords = [
 
 dependencies = [
 
-    "reflex>=0.6.0"
+    "reflex>=0.7.9"
 
 ]
 
@@ -88,4 +88,3 @@ dev = ["build", "twine"]
 [tool.setuptools.packages.find]
 
 where = ["custom_components"]
-

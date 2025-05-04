@@ -2,3 +2,10 @@
 *.py[cod]
 __pycache__/
 dist/
+.states
+*.db
+.idea
+.idea/**/*
+.web
+/venv/
+assets/external/
