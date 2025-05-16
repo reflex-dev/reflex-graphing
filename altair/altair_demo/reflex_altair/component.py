@@ -1,8 +1,14 @@
 from typing import Dict, Any, List, Union
 
-from .type import AltairChartType, AltairLogLevel, AltairPadding, \
-    AltairMode, \
-    AltairRenderer, AltairAction, AltairSignal
+from .type import (
+    AltairChartType,
+    AltairLogLevel,
+    AltairPadding,
+    AltairMode,
+    AltairRenderer,
+    AltairAction,
+    AltairSignal,
+)
 import reflex as rx
 
 
@@ -75,19 +81,18 @@ class AltairChart(rx.Component):
         }}, false);
         """
 
-        listeners = "\n".join([
-            js_code(SIGNAL_PROPS[key], key)
-            for key in SIGNAL_PROPS & tag.props.keys()
-        ])
+        listeners = "\n".join(
+            [js_code(SIGNAL_PROPS[key], key) for key in SIGNAL_PROPS & tag.props.keys()]
+        )
 
         if listeners:
-            self.on_new_view = rx.Var(_js_expr=
-                     f"""
+            self.on_new_view = rx.Var(
+                _js_expr=f"""
                     (view) => {{
                         {listeners}
                     }}
                     """
-                )
+            )
 
         return []
 

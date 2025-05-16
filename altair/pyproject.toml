@@ -1,91 +1,26 @@
 [build-system]
-
-requires = [
-
-    "setuptools",
-
-    "wheel",
-
-]
-
-
-
+requires = ["setuptools", "wheel"]
 build-backend = "setuptools.build_meta"
 
-
-
 [project]
-
 name = "reflex-altair"
-
 version = "0.1.1"
-
 description = "Reflex custom component to render altair/vega"
-
-
-
 readme = "README.md"
-
-
-
 license = { text = "Apache-2.0" }
-
-
-
-requires-python = ">=3.9"
-
-
-
-authors = [{ name = "L�opold Grosjean", email = "leo.grosjean@gmail.com" }]
-
-
-
-keywords = [
-
-    "reflex",
-
-    "reflex-custom-components",
-
-    "altair",
-
-    "vega"
-
-]
-
-
-
-dependencies = [
-
-    "reflex>=0.6.0"
-
-]
-
-
-
-classifiers = [
-
-  "Development Status :: 4 - Beta",
-
-]
-
+requires-python = ">=3.10"
+authors = [{ name = "Leopold Grosjean", email = "leo.grosjean@gmail.com" }]
+keywords = ["reflex", "reflex-custom-components", "altair", "vega"]
+dependencies = ["reflex>=0.7.11"]
+classifiers = ["Development Status :: 4 - Beta"]
 
 
 [project.urls]
-
 homepage = "https://github.com/LeoGrosjean/reflex-graphing/tree/main/altair"
-
 source = "https://github.com/LeoGrosjean/reflex-graphing/tree/main/altair"
 
-
-
 [project.optional-dependencies]
-
 dev = ["build", "twine"]
 
-
-
-
 [tool.setuptools.packages.find]
-
 where = ["custom_components"]
-

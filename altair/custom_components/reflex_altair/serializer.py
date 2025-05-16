@@ -10,6 +10,7 @@ def serialize_altair_chart(chart: AltairChartType) -> Dict[str, Dict[str, Any]]:
     """
     return chart.to_dict()
 
+
 # allow serializer overwrite in reflex.utils.serializers.serializer
 # @rx.serializer
 # def serialize_altair_dataframe(dataframe: AltairDataFrame) -> List[Dict[str, Any]]:

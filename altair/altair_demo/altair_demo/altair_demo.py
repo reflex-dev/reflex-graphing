@@ -14,7 +14,10 @@ import altair as alt
 
 class State(rx.State):
     """The app state."""
-    data_altair: Dict[str, List[Dict[str, Any]]] = {"seattle_weather": data.seattle_weather().to_dict("records")}
+
+    data_altair: Dict[str, List[Dict[str, Any]]] = {
+        "seattle_weather": data.seattle_weather().to_dict("records")
+    }
     spec_altair: AltairChartType = seattle_weather_dashboard()
     theme: str = "default"
 
@@ -49,9 +52,7 @@ def theme_dropdown() -> rx.Component:
             rx.select.group(
                 rx.foreach(
                     list(alt.themes._plugins),
-                    lambda x: rx.select.item(
-                        x, value=x
-                    ),
+                    lambda x: rx.select.item(x, value=x),
                 )
             ),
         ),
@@ -73,7 +74,7 @@ def index() -> rx.Component:
                 width="100%",
                 actions={"export": {"svg": False}, "compiled": False},
                 on_new_view_click=State.test_log,
-                on_new_view_touchstart=State.test_log
+                on_new_view_touchstart=State.test_log,
             ),
             rx.markdown("""
             ### Backend :
@@ -99,7 +100,7 @@ def index() -> rx.Component:
         altair_chart(
             spec=State.spec_airport,
             on_new_view_click=State.test_log,
-            on_new_view_touchstart=State.test_log
+            on_new_view_touchstart=State.test_log,
         ),
         monaco(
             default_value=State.json_spec_2,
@@ -108,7 +109,6 @@ def index() -> rx.Component:
             height="200px",
         ),
     )
-
 
 
 app = rx.App()
