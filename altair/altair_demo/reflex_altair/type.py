@@ -32,14 +32,7 @@ AltairSignal = Literal[
     "wheel",
 ]
 
-AltairLogLevel = Literal[
-    0,
-    1,
-    2,
-    3,
-    4,
-    5
-]
+AltairLogLevel = Literal[0, 1, 2, 3, 4, 5]
 
 AltairPadding = Literal[
     "left",
@@ -49,20 +42,12 @@ AltairPadding = Literal[
 ]
 # AltairDataFrame = NewType('AltairDataFrame', pd.DataFrame)
 
-AltairMode = Literal[
-    "vega",
-    "vega-lite"
-]
+AltairMode = Literal["vega", "vega-lite"]
 
-AltairRenderer = Literal[
-    'canvas',
-    'svg',
-    'hybrid',
-    'none'
-]
+AltairRenderer = Literal["canvas", "svg", "hybrid", "none"]
 
 AltairAction = Union[
     bool,
-    Dict[Literal['export', 'source', 'compiled', 'editor'], bool],
-    Dict[Literal['export'], Dict[Literal['svg', 'png'], Optional[bool]]]
+    Dict[Literal["export", "source", "compiled", "editor"], bool],
+    Dict[Literal["export"], Dict[Literal["svg", "png"], Optional[bool]]],
 ]
