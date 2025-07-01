@@ -1,7 +1,8 @@
 import reflex as rx
 import numpy as np
 import matplotlib.pyplot as plt
-from custom_components.reflex_pyplot import pyplot
+from matplotlib.figure import Figure
+from reflex_pyplot import pyplot
 from reflex.style import toggle_color_mode
 import random
 
@@ -45,13 +46,13 @@ class State(rx.State):
         self.randomize()
 
     @rx.var
-    def fig_light(self) -> plt.Figure:
+    def fig_light(self) -> Figure:
         fig = create_plot("light", self.plot_data, self.scale)
         plt.close(fig)  # Close the figure after creating it
         return fig
 
     @rx.var
-    def fig_dark(self) -> plt.Figure:
+    def fig_dark(self) -> Figure:
         fig = create_plot("dark", self.plot_data, self.scale)
         plt.close(fig)  # Close the figure after creating it
         return fig
