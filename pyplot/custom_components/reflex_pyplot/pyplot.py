@@ -3,7 +3,7 @@ import base64
 from matplotlib.figure import Figure
 import matplotlib
 from reflex.components.component import Component
-from reflex.components.next.image import Image
+from reflex.components.el.elements.media import Img
 from reflex.utils.serializers import serializer
 
 
@@ -16,7 +16,7 @@ class Pyplot(Component):
     @classmethod
     def create(cls, fig: Figure, **props):
         """Create a Pyplot component."""
-        return Image.create(src=fig, **props)
+        return Img.create(src=fig, **props)
 
     @staticmethod
     @serializer
