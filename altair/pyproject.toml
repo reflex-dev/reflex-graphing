@@ -27,6 +27,7 @@ vcs = "git"
 style = "pep440"
 bump = true
 metadata = false
+pattern-prefix = "altair-"
 
 [tool.hatch.build.targets.wheel]
 packages = ["custom_components"]

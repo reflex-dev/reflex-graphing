@@ -21,6 +21,7 @@ vcs = "git"
 style = "pep440"
 bump = true
 metadata = false
+pattern-prefix = "pyplot-"
 
 [tool.hatch.build.targets.wheel]
 packages = ["custom_components"]
