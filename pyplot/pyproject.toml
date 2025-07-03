@@ -21,7 +21,7 @@ vcs = "git"
 style = "pep440"
 bump = true
 metadata = false
-tag-regex = "^pyplot-v(?P<version>.+)$"
+pattern-prefix = "pyplot-"
 
 [tool.hatch.build.targets.wheel]
 packages = ["custom_components"]
