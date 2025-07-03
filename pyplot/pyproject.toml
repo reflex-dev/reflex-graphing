@@ -1,10 +1,10 @@
 [build-system]
-requires = ["setuptools", "wheel"]
-build-backend = "setuptools.build_meta"
+requires = ["hatchling", "uv-dynamic-versioning"]
+build-backend = "hatchling.build"
 
 [project]
 name = "reflex-pyplot"
-version = "0.1.2"
+dynamic = ["version"]
 description = "Reflex custom component for matplotlib."
 authors = [{ name = "Alek Petuskey", email = "alek@reflex.dev" }]
 license = { text = "Apache-2.0" }
@@ -13,12 +13,29 @@ readme = "README.md"
 keywords = ["reflex", "matplotlib"]
 dependencies = ["matplotlib"]
 
-[tool.setuptools.packages.find]
-where = ["custom_components"]
+[tool.hatch.version]
+source = "uv-dynamic-versioning"
+
+[tool.uv-dynamic-versioning]
+vcs = "git"
+style = "pep440"
+bump = true
+metadata = false
+
+[tool.hatch.build.targets.wheel]
+packages = ["custom_components"]
 
 [project.urls]
 homepage = "https://reflex.dev"
 source = "https://github.com/reflex-dev/reflex-graphing/tree/main/pyplot"
+
+[dependency-groups]
+dev = [
+    "build",
+    "twine",
+    "pytest",
+    "ruff"
+]
 
 [tool.ruff]
 target-version = "py310"
