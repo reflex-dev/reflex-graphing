@@ -1,10 +1,10 @@
 [build-system]
-requires = ["setuptools", "wheel"]
-build-backend = "setuptools.build_meta"
+requires = ["hatchling", "uv-dynamic-versioning"]
+build-backend = "hatchling.build"
 
 [project]
 name = "reflex-altair"
-version = "0.1.1"
+dynamic = ["version"]
 description = "Reflex custom component to render altair/vega"
 readme = "README.md"
 license = { text = "Apache-2.0" }
@@ -19,8 +19,22 @@ classifiers = ["Development Status :: 4 - Beta"]
 homepage = "https://github.com/LeoGrosjean/reflex-graphing/tree/main/altair"
 source = "https://github.com/LeoGrosjean/reflex-graphing/tree/main/altair"
 
-[project.optional-dependencies]
-dev = ["build", "twine"]
+[tool.hatch.version]
+source = "uv-dynamic-versioning"
 
-[tool.setuptools.packages.find]
-where = ["custom_components"]
+[tool.uv-dynamic-versioning]
+vcs = "git"
+style = "pep440"
+bump = true
+metadata = false
+
+[tool.hatch.build.targets.wheel]
+packages = ["custom_components"]
+
+[dependency-groups]
+dev = [
+    "build",
+    "twine",
+    "pytest",
+    "ruff"
+]
