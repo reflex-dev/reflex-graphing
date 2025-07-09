@@ -24,7 +24,8 @@ metadata = false
 pattern-prefix = "pyplot-"
 
 [tool.hatch.build.targets.wheel]
-packages = ["custom_components"]
+only-include = ["custom_components/reflex_pyplot"]
+sources = ["custom_components"]
 
 [project.urls]
 homepage = "https://reflex.dev"
